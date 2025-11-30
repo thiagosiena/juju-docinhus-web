@@ -1,0 +1,131 @@
+/* --------- CONTAINER --------- */
+.home-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px 18px;
+}
+
+/* --------- TÍTULO --------- */
+.home-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  margin-top: -60px;
+  color: #222; 
+  text-align: center;
+}
+
+/* --------- FILTROS --------- */
+.home-filters {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background: white;
+  border-radius: 40px;
+  border: 2px solid #ececec;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #222; 
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.filter-btn:hover {
+  border-color: #FE9695; 
+}
+
+.filter-btn.active {
+  background: #FE9695; 
+  color: white;
+  border-color: #E27877; 
+  box-shadow: 0 4px 12px rgba(254, 150, 149, 0.45);
+}
+
+/* --------- GRID DE PRODUTOS --------- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+/* --------- CARD --------- */
+.product-card {
+  background: white;
+  border-radius: 18px; 
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); 
+  overflow: hidden;
+  transition: 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* --------- IMAGEM --------- */
+.product-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* --------- INFO --------- */
+.product-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222; 
+}
+
+.product-desc {
+  margin: 8px 0 20px;
+  font-size: 0.95rem;
+  color: #666; 
+  flex-grow: 1;
+}
+
+/* --------- FOOTER --------- */
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FE9695; 
+}
+
+.product-btn {
+  padding: 10px 18px;
+  background: #FE9695; 
+  color: white;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.product-btn:hover {
+  background: #E27877; 
+  transform: scale(1.05);
+}

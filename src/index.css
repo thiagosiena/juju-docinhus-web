@@ -1,0 +1,58 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f8f8;
+  color: #333;
+}
+
+.cliente-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: #ff4444;
+  padding: 16px 24px;
+  color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* MAIN */
+.conteudo {
+  flex: 1;
+  padding: 24px;
+}
+
+/* FOOTER */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+}

@@ -1,0 +1,136 @@
+/* Container da tela cheia */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5f5 0%, #f4f5f7 100%);
+  padding: 20px;
+}
+
+/* O Card Branco */
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 40px 32px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+  text-align: center;
+  position: relative;
+}
+
+/* Cabeçalho interno  */
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+/* Link de voltar */
+.login-back-link {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 15px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.login-back-link:hover {
+  color: #FE9695; 
+}
+
+/* Título */
+.login-box h2 {
+  font-size: 1.8rem;
+  color: #FE9695; 
+  margin: 0 auto; 
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Formulário */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.login-box label {
+  margin: 12px 0 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.login-box input {
+  padding: 14px;
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.login-box input:focus {
+  border-color: #FE9695; 
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(254, 150, 149, 0.15); /* Anel de foco suave */
+}
+
+/* Mensagem de Erro */
+.login-error {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #ffe6e6;
+  color: #d32f2f;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #ffcccc;
+}
+
+/* Botão de Login */
+.btn-login {
+  margin-top: 25px;
+  padding: 14px;
+  border: none;
+  background: #FE9695; 
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(254, 150, 149, 0.3);
+}
+
+.btn-login:hover {
+  background: #E27877; 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(226, 120, 119, 0.4);
+}
+
+.btn-login:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 30px 20px;
+  }
+  
+  .login-box h2 {
+    font-size: 1.5rem;
+  }
+}

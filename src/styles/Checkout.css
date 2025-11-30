@@ -1,0 +1,146 @@
+.checkout-container {
+  padding: 20px;
+}
+
+.checkout-title {
+  text-align: center;
+  margin-top: -70px;
+  font-size: 2rem;
+  color: #FE9695; 
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.checkout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-item-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-price {
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+.checkout-total {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  color: #FE9695; 
+  justify-content: space-between;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.cliente-title {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  color: #FE9695; 
+  font-weight: bold;
+}
+
+.checkout-form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  margin-top: 5px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.checkout-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.checkout-confirm-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px;
+  background: #FE9695; 
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.checkout-confirm-btn:hover {
+  background: #E27877; 
+}
+
+
+.checkout-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.checkout-title {
+  text-align: left;
+  font-size: 2rem;
+  color: #FE9695;
+  font-weight: bold;
+  margin: 0; 
+  line-height: 1;
+}
+
+.checkout-back-btn {
+  background: #FE9695;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 16px;
+  border: none;
+  text-decoration: none;
+  transition: 0.2s;
+  flex-shrink: 0;
+  margin: 0; 
+}
+
+.checkout-back-btn:hover {
+  background: #E27877;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .checkout-title {
+    font-size: 1.5rem;
+  }
+  
+  .checkout-back-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}

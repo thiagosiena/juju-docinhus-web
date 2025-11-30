@@ -1,0 +1,67 @@
+/* src/components/Toast.css */
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999; 
+  border-left: 5px solid #FE9695; 
+  
+  
+  animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.toast-message {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.toast-icon {
+  color: #FE9695;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .toast-notification {
+    top: 20px;
+    left: 20px;
+    right: 20px; 
+    width: auto;
+    justify-content: flex-start;
+  }
+}
