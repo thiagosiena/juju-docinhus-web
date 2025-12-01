@@ -45,7 +45,6 @@ function Home() {
 
   const getImagemSrc = (item) => {
     if (item.imagem_base64) {
-      // assume JPEG; se for PNG pode trocar o mime-type
       return `data:image/jpeg;base64,${item.imagem_base64}`;
     }
 

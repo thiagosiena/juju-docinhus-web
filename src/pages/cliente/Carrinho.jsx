@@ -10,7 +10,6 @@ export default function Carrinho() {
 
   return (
     <div className="cart-container">
-      {/* Container Flex ajustado no CSS */}
       <div className="cart-header">
         <button className="cart-back-btn" onClick={() => navigate(-1)}>
           ← Voltar

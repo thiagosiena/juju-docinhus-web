@@ -21,7 +21,6 @@ export default function AdminCardapio() {
   const { token } = useAuth();
   const navigate = useNavigate();
   
-  // 2. Extraímos a função para disparar o pop-up
   const { showToast } = useToast();
 
   const [produtos, setProdutos] = useState([]);

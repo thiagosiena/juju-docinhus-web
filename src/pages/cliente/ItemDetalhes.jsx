@@ -48,7 +48,6 @@ function ItemDetalhes() {
 
   return (
     <div className="item-detalhes-container">
-      {/* Botão de voltar agora estilizado com borda no CSS */}
       <button className="back-btn" onClick={() => navigate(-1)}>
         ← Voltar
       </button>
