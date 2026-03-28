@@ -1,0 +1,128 @@
+/* CONTAINER */
+.cadastro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #FEF0F0, #FFF5F5);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BOX */
+.cadastro-box {
+  width: 100%;
+  max-width: 520px; 
+  background: #fff;
+  padding: 45px; 
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(254, 150, 149, 0.15);
+  border: 1px solid rgba(254, 150, 149, 0.12);
+}
+
+/* HEADER */
+.cadastro-header h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2f3542;
+}
+
+.cadastro-header p {
+  font-size: 15px;
+  color: #8a8f98;
+  margin-top: 6px;
+}
+
+/* VOLTAR */
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #a4b0be;
+  text-decoration: none;
+  margin-bottom: 25px;
+  transition: 0.2s;
+}
+
+.back-link:hover {
+  color: #FE9695;
+}
+
+/* FORM */
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; 
+  margin-top: 25px;
+}
+
+/* INPUT */
+.input {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #fafafa;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #FE9695;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(254, 150, 149, 0.15);
+}
+
+/* GRID SENHA */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* BOTÃO */
+.cadastro-btn {
+  margin-top: 15px;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: #FE9695;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cadastro-btn:hover {
+  background: #fd7e7c;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(254, 150, 149, 0.3);
+}
+
+/* ERRO */
+.erro {
+  background: #ffe5e5;
+  color: #d63031;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .cadastro-box {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .cadastro-header h2 {
+    font-size: 24px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+}

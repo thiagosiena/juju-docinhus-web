@@ -1,0 +1,124 @@
+.sobre-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+  color: #2f3542;
+}
+
+.sobre-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sobre-logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 4px solid white;
+}
+
+.sobre-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #2f3542;
+}
+
+.sobre-version {
+  display: inline-block;
+  background-color: #FE9695; 
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.sobre-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.sobre-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f2f6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sobre-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(254, 150, 149, 0.2); 
+  border-color: #FE9695; 
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 16px;
+}
+
+.card-icon {
+  font-size: 28px;
+  color: #FE9695;
+}
+
+.card-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #2f3542;
+}
+
+.sobre-card p {
+  line-height: 1.7;
+  color: #57606f;
+  font-size: 16px;
+  margin: 0;
+}
+
+.equipe-list, .academico-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.equipe-list li {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2f3542;
+  display: flex;
+  align-items: center;
+}
+
+.equipe-list li::before {
+  content: "•";
+  color: #FE9695; 
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.academico-list li {
+  padding: 10px 0;
+  font-size: 16px;
+  color: #57606f;
+  border-bottom: 1px dashed #f1f2f6;
+}
+
+.academico-list li:last-child {
+  border-bottom: none;
+}
+
+.academico-list strong {
+  color: #2f3542;
+  margin-right: 8px;
+}

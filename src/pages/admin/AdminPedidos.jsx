@@ -12,10 +12,14 @@ import {
   FiCheckCircle,
   FiShoppingBag,
   FiChevronDown, 
-  FiChevronUp 
+  FiChevronUp,
+  FiEdit2,      // Ícone novo
+  FiTrash2,     // Ícone novo
+  FiSave,       // Ícone novo
+  FiX           // Ícone novo
 } from "react-icons/fi";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 const STATUS_ORDER = ["RECEBIDO", "EM_PREPARO", "PRONTO", "ENTREGUE"];
 
@@ -38,8 +42,9 @@ export default function AdminPedidos() {
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState("");
   
-
   const [expandedOrders, setExpandedOrders] = useState({});
+  // Estado para controlar qual pedido está sendo editado no momento
+  const [editingOrder, setEditingOrder] = useState(null); 
 
   useEffect(() => {
     if (!token) return;
@@ -58,7 +63,11 @@ export default function AdminPedidos() {
         if (!resp.ok) throw new Error("Erro ao buscar pedidos");
 
         const data = await resp.json();
-        setPedidos(data);
+        // Evita piscar a tela se estiver editando um pedido
+        setPedidos(prev => {
+           // Se os dados não mudaram de tamanho e não estamos filtrando pesado, apenas atualiza
+           return data; 
+        });
       } catch (e) {
         if (!cancelado) console.error("Erro conexão silent");
       } finally {
@@ -67,14 +76,18 @@ export default function AdminPedidos() {
     }
 
     carregarPedidos();
-    const interval = setInterval(carregarPedidos, 10000);
+    // Pausa o auto-refresh se estivermos no meio de uma edição para não bugar o input
+    const interval = setInterval(() => {
+        if (!editingOrder) carregarPedidos();
+    }, 10000);
 
     return () => {
       cancelado = true;
       clearInterval(interval);
     };
-  }, [token]); 
+  }, [token, editingOrder]); 
 
+  // --- FUNÇÕES DE STATUS ---
   async function alterarStatus(id) {
     const pedido = pedidos.find((p) => p.id === id);
     if (!pedido) return;
@@ -95,30 +108,66 @@ export default function AdminPedidos() {
       });
 
       if (!resp.ok) throw new Error("Falha ao atualizar");
-
       const pedidoAtualizado = await resp.json();
 
-      setPedidos((prev) =>
-        prev.map((p) => (p.id === id ? pedidoAtualizado : p))
-      );
-      
+      setPedidos((prev) => prev.map((p) => (p.id === id ? pedidoAtualizado : p)));
       showToast(`Pedido #${id} movido para ${STATUS_LABELS[novoStatus]}`);
-
     } catch (e) {
       alert("Erro ao mudar status: " + e.message);
     }
   }
 
+  // --- NOVA FUNÇÃO: DELETAR PEDIDO ---
+  async function deletarPedido(id) {
+    if (!window.confirm(`Tem certeza que deseja excluir o pedido #${id} do sistema?`)) return;
+
+    try {
+      const resp = await fetch(`${API_URL}/admin/pedidos/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!resp.ok) throw new Error("Falha ao excluir pedido");
+
+      // Remove o pedido apagado da lista instantaneamente
+      setPedidos((prev) => prev.filter((p) => p.id !== id));
+      showToast(`Pedido #${id} excluído com sucesso!`);
+    } catch (e) {
+      alert("Erro ao excluir: " + e.message);
+    }
+  }
+
+  // --- NOVA FUNÇÃO: SALVAR EDIÇÃO ---
+  async function salvarEdicao() {
+    try {
+      const resp = await fetch(`${API_URL}/admin/pedidos/${editingOrder.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          cliente: editingOrder.cliente,
+          mesa: Number(editingOrder.mesa) // Garante que a mesa vai como número
+        }),
+      });
+
+      if (!resp.ok) throw new Error("Falha ao editar pedido");
+      
+      const pedidoAtualizado = await resp.json();
+      setPedidos((prev) => prev.map((p) => (p.id === editingOrder.id ? pedidoAtualizado : p)));
+      setEditingOrder(null); // Fecha o modo de edição
+      showToast(`Pedido #${pedidoAtualizado.id} atualizado!`);
+    } catch (e) {
+      alert("Erro ao salvar edição: " + e.message);
+    }
+  }
 
   const toggleExpand = (id) => {
-    setExpandedOrders(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
+    setExpandedOrders(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const pedidosFiltrados =
-    filtro === "Todos" ? pedidos : pedidos.filter((p) => p.status === filtro);
+  const pedidosFiltrados = filtro === "Todos" ? pedidos : pedidos.filter((p) => p.status === filtro);
 
   function formatarData(iso) {
     const d = new Date(iso);
@@ -178,25 +227,71 @@ export default function AdminPedidos() {
           const statusLower = pedido.status.toLowerCase();
           const label = STATUS_LABELS[pedido.status];
           const isExpanded = !!expandedOrders[pedido.id];
+          const isEditing = editingOrder?.id === pedido.id;
 
           return (
             <div key={pedido.id} className={`order-card border-${statusLower}`}>
               <div className="order-header">
                 <span className="order-id">#{pedido.id}</span>
-                <span className="order-time">
+                
+                {/* --- BOTÕES DE AÇÃO NO CABEÇALHO --- */}
+                <div style={{ marginLeft: "auto", display: "flex", gap: "12px", alignItems: "center" }}>
+                  {!isEditing && (
+                    <button 
+                      onClick={() => setEditingOrder({ id: pedido.id, cliente: pedido.cliente, mesa: pedido.mesa })}
+                      style={{ background: "none", border: "none", cursor: "pointer", color: "#6c757d" }}
+                      title="Editar Pedido"
+                    >
+                      <FiEdit2 size={16} />
+                    </button>
+                  )}
+                  <button 
+                    onClick={() => deletarPedido(pedido.id)}
+                    style={{ background: "none", border: "none", cursor: "pointer", color: "#dc3545" }}
+                    title="Excluir Pedido"
+                  >
+                    <FiTrash2 size={16} />
+                  </button>
+                </div>
+
+                <span className="order-time" style={{ marginLeft: "12px" }}>
                   <FiClock size={14} style={{marginRight: 4}}/> 
                   {formatarData(pedido.data)}
                 </span>
               </div>
 
               <div className="order-body">
-                <div className="order-row">
-                  <FiUser className="icon-muted" />
-                  <strong>{pedido.cliente}</strong>
-                  <span className="mesa-tag">Mesa {pedido.mesa}</span>
-                </div>
+                {/* --- MODO DE EDIÇÃO VS VISUALIZAÇÃO --- */}
+                {isEditing ? (
+                  <div className="order-row edit-mode" style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "12px" }}>
+                    <FiUser className="icon-muted" />
+                    <input 
+                      type="text"
+                      value={editingOrder.cliente}
+                      onChange={(e) => setEditingOrder({...editingOrder, cliente: e.target.value})}
+                      placeholder="Nome"
+                      style={{ padding: "4px", borderRadius: "4px", border: "1px solid #ccc", width: "100px" }}
+                    />
+                    <span className="mesa-tag" style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                      Mesa
+                      <input 
+                        type="number"
+                        value={editingOrder.mesa}
+                        onChange={(e) => setEditingOrder({...editingOrder, mesa: e.target.value})}
+                        style={{ width: "40px", padding: "4px", borderRadius: "4px", border: "1px solid #ccc" }}
+                      />
+                    </span>
+                    <button onClick={salvarEdicao} style={{ background: "none", border: "none", color: "#28a745", cursor: "pointer" }}><FiSave size={18}/></button>
+                    <button onClick={() => setEditingOrder(null)} style={{ background: "none", border: "none", color: "#dc3545", cursor: "pointer" }}><FiX size={18}/></button>
+                  </div>
+                ) : (
+                  <div className="order-row">
+                    <FiUser className="icon-muted" />
+                    <strong>{pedido.cliente}</strong>
+                    <span className="mesa-tag">Mesa {pedido.mesa}</span>
+                  </div>
+                )}
                 
-                {/* --- ÁREA DE ITENS DETALHADA --- */}
                 <div className="order-items-container">
                   <button 
                     className="toggle-items-btn" 

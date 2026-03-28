@@ -19,34 +19,45 @@
 /* --------- FILTROS --------- */
 .home-filters {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   overflow-x: auto;
-  padding-bottom: 10px;
-  margin-bottom: 32px;
+  padding: 10px 4px 20px 4px; 
+  margin-bottom: 20px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; 
+
+  scrollbar-width: none; 
+}
+
+.home-filters::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-btn {
-  padding: 10px 20px;
-  background: white;
-  border-radius: 40px;
-  border: 2px solid #ececec;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.2s;
-  color: #222; 
-  white-space: nowrap;
+  flex-shrink: 0; 
+  
+  padding: 10px 24px;
+  border: 1px solid #eee;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #555;
   font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
 .filter-btn:hover {
-  border-color: #FE9695; 
+  border-color: #FE9695;
+  color: #FE9695;
 }
 
 .filter-btn.active {
-  background: #FE9695; 
-  color: white;
-  border-color: #E27877; 
-  box-shadow: 0 4px 12px rgba(254, 150, 149, 0.45);
+  background-color: #FE9695;
+  color: #fff;
+  border-color: #FE9695;
+  box-shadow: 0 6px 15px rgba(254, 150, 149, 0.3);
 }
 
 /* --------- GRID DE PRODUTOS --------- */
@@ -128,4 +139,51 @@
 .product-btn:hover {
   background: #E27877; 
   transform: scale(1.05);
+}
+
+/* --- SKELETON LOADING ANIMATION --- */
+.skeleton-card {
+  pointer-events: none; /* Impede clique enquanto carrega */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.pulse {
+  animation: pulse-bg 1.5s infinite ease-in-out;
+  border-radius: 8px;
+}
+
+@keyframes pulse-bg {
+  0% { background-color: #f1f2f6; }
+  50% { background-color: #dfe4ea; }
+  100% { background-color: #f1f2f6; }
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 200px; /* Mesma altura das suas imagens */
+  border-radius: 20px 20px 0 0;
+  background-color: #f1f2f6;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 70%;
+  margin-bottom: 12px;
+}
+
+.skeleton-desc {
+  height: 40px; /* Espaço de duas linhas */
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.skeleton-price {
+  height: 24px;
+  width: 40%;
+}
+
+.skeleton-btn {
+  height: 35px;
+  width: 90px;
+  border-radius: 20px;
 }

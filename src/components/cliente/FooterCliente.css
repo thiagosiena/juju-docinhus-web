@@ -1,20 +1,21 @@
 /* --------- ESTRUTURA GERAL --------- */
 .footer-cliente {
-  background-color: #fff;
-  border-top: 1px solid #f0f0f0;
-  padding-top: 60px;
-  margin-top: 60px; /* Garante espaço do conteúdo acima */
-  color: #666;
-  font-family: sans-serif;
+  background-color: #ffffff;
+  border-top: 1px solid #f1f2f6;
+  padding-top: 70px;
+  margin-top: 80px; /* Mais espaço para respirar do conteúdo acima */
+  color: #57606f;
+  font-family: 'Poppins', sans-serif;
 }
 
 .footer-container {
   max-width: 1250px;
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 0 20px 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  /* A primeira coluna (Marca) fica um pouco maior no Desktop */
+  grid-template-columns: 2fr 1fr 1.5fr; 
+  gap: 50px;
 }
 
 /* --------- SEÇÕES --------- */
@@ -26,25 +27,27 @@
 
 /* Marca */
 .footer-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #FE9695; /* Cor Primária */
-  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2f3542;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
 }
 
 .footer-text {
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #777;
-  margin-bottom: 15px;
+  line-height: 1.7;
+  color: #747d8c;
+  margin: 0;
+  max-width: 350px; /* Impede que o texto fique longo demais */
 }
 
 /* Títulos das colunas */
 .footer-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #333;
-  margin-bottom: 20px;
+  color: #2f3542;
+  margin: 0 0 24px 0;
   position: relative;
 }
 
@@ -52,99 +55,127 @@
   content: '';
   position: absolute;
   left: 0;
-  bottom: -6px;
-  width: 30px;
+  bottom: -8px;
+  width: 35px;
   height: 3px;
+  background-color: #FE9695; /* Sublinhado charmoso na cor da marca */
   border-radius: 2px;
 }
 
-/* --------- LINKS --------- */
+/* --------- LINKS DE NAVEGAÇÃO --------- */
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .footer-links a {
   text-decoration: none;
-  color: #666;
+  color: #747d8c;
   font-size: 0.95rem;
+  font-weight: 500;
   transition: all 0.2s ease;
   display: inline-block;
 }
 
 .footer-links a:hover {
   color: #FE9695; 
-  transform: translateX(5px); 
+  transform: translateX(6px); /* Efeito de deslize suave ao passar o mouse */
+}
+
+/* --------- INFORMAÇÕES DE CONTATO --------- */
+.footer-contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #747d8c;
+}
+
+.contact-icon {
+  color: #FE9695;
+  font-size: 1.1rem;
 }
 
 /* --------- BOTÕES SOCIAIS --------- */
 .footer-socials {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
 }
 
-.social-btn {
-  padding: 8px 16px;
-  border-radius: 20px;
+.social-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #f1f2f6;
+  color: #57606f;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: 0.3s;
-  border: 1px solid #eee;
+  transition: all 0.3s ease;
 }
 
-.social-btn.instagram {
-  color: #C13584;
-  background: #FFF5F9;
+.social-icon-btn:hover {
+  background-color: #FE9695;
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(254, 150, 149, 0.25);
 }
 
-.social-btn.whatsapp {
-  color: #25D366;
-  background: #F0FFF4;
-}
-
-.social-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-/* --------- BARRA INFERIOR --------- */
+/* --------- BARRA INFERIOR (COPYRIGHT) --------- */
 .footer-bottom {
-  border-top: 1px solid #eee;
-  padding: 20px;
+  border-top: 1px solid #f1f2f6;
+  padding: 24px 20px;
   text-align: center;
   background-color: #fafafa;
 }
 
 .footer-bottom p {
-  font-size: 0.85rem;
-  color: #999;
+  font-size: 0.9rem;
+  color: #a4b0be;
   margin: 0;
 }
 
 .footer-bottom strong {
-  color: #FE9695;
+  color: #2f3542;
+  font-weight: 600;
 }
 
 /* --------- RESPONSIVIDADE --------- */
 @media (max-width: 768px) {
   .footer-container {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Empilha tudo no celular */
     text-align: center;
+    gap: 40px;
   }
 
   .footer-section {
     align-items: center; 
   }
 
+  .footer-text {
+    max-width: 100%;
+  }
+
   .footer-title::after {
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%); /* Centraliza o sublinhado rosa */
+  }
+
+  .footer-links a:hover {
+    transform: translateX(0) scale(1.05); /* Muda o efeito no celular pra não tremer */
   }
 }

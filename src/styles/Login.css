@@ -1,136 +1,211 @@
-/* Container da tela cheia */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #fff5f5 0%, #f4f5f7 100%);
-  padding: 20px;
+  background: linear-gradient(135deg, #FEF0F0 0%, #FFF5F5 100%);
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* O Card Branco */
 .login-box {
+  background-color: white;
+  padding: 40px 50px 50px; /* Um pouco menos de padding no topo pra compensar o botão voltar */
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(254, 150, 149, 0.1);
   width: 100%;
-  max-width: 400px;
-  background: #fff;
-  padding: 40px 32px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+  max-width: 500px;
   text-align: center;
-  position: relative;
+  border: 1px solid rgba(254, 150, 149, 0.2);
 }
 
-/* Cabeçalho interno  */
-.login-header {
+/* --- VOLTAR NAVEGAÇÃO NO CANTO --- */
+.back-nav {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 25px;
-}
-
-/* Link de voltar */
-.login-back-link {
+  align-items: center;
+  color: #a4b0be;
   text-decoration: none;
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 15px;
-  transition: color 0.2s;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 20px;
+  width: fit-content;
+  margin-right: auto; /* Mágica que joga o botão pro canto esquerdo */
+  transition: all 0.2s ease;
 }
 
-.login-back-link:hover {
-  color: #FE9695; 
+.back-nav:hover {
+  color: #FE9695;
+  transform: translateX(-3px);
 }
 
-/* Título */
-.login-box h2 {
-  font-size: 1.8rem;
-  color: #FE9695; 
-  margin: 0 auto; 
-  width: 100%;
-  text-align: center;
+/* --- HEADER DO LOGIN --- */
+.login-header h2 {
+  font-size: 32px;
+  color: #2f3542;
+  margin-top: 0;
   font-weight: 700;
 }
 
-/* Formulário */
-.login-box form {
-  display: flex;
-  flex-direction: column;
+.login-header p {
+  color: #747d8c;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+/* --- SISTEMA DE ALERTAS COMPLETO --- */
+.alert-message {
+  margin-bottom: 24px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.alert-message.error {
+  background-color: #FEF2F2;
+  color: #DC2626;
+  border: 1px solid #FECACA;
+}
+
+.alert-message.success {
+  background-color: #F0FDF4;
+  color: #16A34A;
+  border: 1px solid #BBF7D0;
+}
+
+.alert-message.warning {
+  background-color: #FFFBEB;
+  color: #D97706;
+  border: 1px solid #FDE68A;
+}
+
+/* --- FORMULÁRIO --- */
+.login-form {
   text-align: left;
 }
 
-.login-box label {
-  margin: 12px 0 6px;
-  font-size: 0.9rem;
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 15px;
   font-weight: 600;
-  color: #444;
+  color: #57606f;
+  margin-bottom: 8px;
+  margin-left: 4px;
 }
 
-.login-box input {
-  padding: 14px;
-  border: 1px solid #eee;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.2s;
-  color: #333;
+.input-group input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #f1f2f6;
+  background-color: #fcfcfd;
+  border-radius: 14px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.login-box input:focus {
-  border-color: #FE9695; 
-  background-color: #fff;
+.input-group input:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(254, 150, 149, 0.15); /* Anel de foco suave */
+  border-color: #FE9695;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(254, 150, 149, 0.1);
 }
 
-/* Mensagem de Erro */
-.login-error {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #ffe6e6;
-  color: #d32f2f;
-  font-size: 0.9rem;
+.form-actions {
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: #FE9695;
+  text-decoration: none;
   font-weight: 600;
-  border-radius: 8px;
-  text-align: center;
-  border: 1px solid #ffcccc;
 }
 
-/* Botão de Login */
-.btn-login {
-  margin-top: 25px;
-  padding: 14px;
+.login-submit-btn {
+  width: 100%;
+  padding: 18px;
+  background-color: #FE9695;
+  color: white;
   border: none;
-  background: #FE9695; 
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 12px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(254, 150, 149, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(254, 150, 149, 0.2);
 }
 
-.btn-login:hover {
-  background: #E27877; 
+.login-submit-btn:hover {
+  background-color: #fd7e7c;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(226, 120, 119, 0.4);
+  box-shadow: 0 15px 25px rgba(254, 150, 149, 0.3);
 }
 
-.btn-login:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
+.login-footer {
+  margin-top: 35px;
+  font-size: 15px;
+  color: #57606f;
 }
 
-/* Responsividade */
-@media (max-width: 480px) {
-  .login-box {
-    padding: 30px 20px;
-  }
-  
-  .login-box h2 {
-    font-size: 1.5rem;
-  }
+.login-footer a {
+  color: #FE9695;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  .login-box { padding: 35px 20px; }
+  .login-header h2 { font-size: 26px; }
+}
+
+/* Easter Egg do Admin */
+.admin-secret-zone {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  width: 45px;
+  height: 45px;
+  opacity: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.admin-secret-zone::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.admin-secret-zone::after {
+  content: "⚙️";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.25s ease;
+}
+
+.admin-secret-zone:hover { opacity: 1; }
+.admin-secret-zone:hover::after {
+  opacity: 1;
+  transform: scale(1.4);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
