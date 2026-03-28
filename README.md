@@ -41,12 +41,28 @@ O sistema foi dividido em módulos com responsabilidades claras e rotas protegid
 
 ## 📸 Telas da Aplicação Web
 
-<div align="center">
-  <img src="src/assets/screens/unnamed2.jpg" width="48%" />
-  <img src="src/assets/screens/unnamed4.jpg" width="48%" />
-  <img src="src/assets/screens/unnamed1.jpg" width="48%" />
-  <img src="src/assets/screens/unnamed5.jpg" width="48%" />
-</div>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="src/assets/screens/unnamed2.jpg" width="100%" />
+      <br><b>Início / Cardápio</b>
+    </td>
+    <td align="center">
+      <img src="src/assets/screens/unnamed4.jpg" width="100%" />
+      <br><b>Detalhes do Produto</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="src/assets/screens/unnamed1.jpg" width="100%" />
+      <br><b>Dashboard Administrativo</b>
+    </td>
+    <td align="center">
+      <img src="src/assets/screens/unnamed5.jpg" width="100%" />
+      <br><b>Gerenciamento de Cardápio</b>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -68,7 +84,7 @@ O sistema foi dividido em módulos com responsabilidades claras e rotas protegid
 
 ## 🎓 Contexto Acadêmico
 
-Este ecossistema foi projetado e desenvolvido de ponta a ponta (Full-Stack) como requisito de avaliação prática para o curso de **Engenharia de Software** da **Universidade de Ribeirão Preto (UNAERP)**.
+Este ecossistema foi projetado e desenvolvido de ponta a ponta (Full-Stack) como requisito de avaliação prática para os cursos de **Engenharia de Computação** da **Universidade de Ribeirão Preto (UNAERP)**.
 
 * **Prática Extensionista VII:** Desenvolvimento da Plataforma Web (React) e Arquitetura da API.
 * **Prática Extensionista VIII:** Integração do Aplicativo Mobile (Flutter).
