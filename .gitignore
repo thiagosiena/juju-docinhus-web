@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# --- VARIÁVEIS DE AMBIENTE (Segurança) ---
+.env
+.env.*
+!.env.example
+
+# --- IDEs e OS ---
 .vscode/*
 !.vscode/extensions.json
 .idea
