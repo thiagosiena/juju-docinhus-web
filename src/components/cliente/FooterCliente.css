@@ -3,7 +3,7 @@
   background-color: #ffffff;
   border-top: 1px solid #f1f2f6;
   padding-top: 70px;
-  margin-top: 80px; /* Mais espaço para respirar do conteúdo acima */
+  margin-top: 80px; 
   color: #57606f;
   font-family: 'Poppins', sans-serif;
 }
@@ -13,7 +13,6 @@
   margin: 0 auto;
   padding: 0 20px 50px;
   display: grid;
-  /* A primeira coluna (Marca) fica um pouco maior no Desktop */
   grid-template-columns: 2fr 1fr 1.5fr; 
   gap: 50px;
 }
@@ -39,7 +38,7 @@
   line-height: 1.7;
   color: #747d8c;
   margin: 0;
-  max-width: 350px; /* Impede que o texto fique longo demais */
+  max-width: 350px;
 }
 
 /* Títulos das colunas */
@@ -58,7 +57,7 @@
   bottom: -8px;
   width: 35px;
   height: 3px;
-  background-color: #FE9695; /* Sublinhado charmoso na cor da marca */
+  background-color: #FE9695; 
   border-radius: 2px;
 }
 
@@ -83,7 +82,7 @@
 
 .footer-links a:hover {
   color: #FE9695; 
-  transform: translateX(6px); /* Efeito de deslize suave ao passar o mouse */
+  transform: translateX(6px);
 }
 
 /* --------- INFORMAÇÕES DE CONTATO --------- */
@@ -157,7 +156,7 @@
 /* --------- RESPONSIVIDADE --------- */
 @media (max-width: 768px) {
   .footer-container {
-    grid-template-columns: 1fr; /* Empilha tudo no celular */
+    grid-template-columns: 1fr;
     text-align: center;
     gap: 40px;
   }
@@ -172,10 +171,10 @@
 
   .footer-title::after {
     left: 50%;
-    transform: translateX(-50%); /* Centraliza o sublinhado rosa */
+    transform: translateX(-50%);
   }
 
   .footer-links a:hover {
-    transform: translateX(0) scale(1.05); /* Muda o efeito no celular pra não tremer */
+    transform: translateX(0) scale(1.05);
   }
 }
