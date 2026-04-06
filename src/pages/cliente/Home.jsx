@@ -5,13 +5,9 @@ import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 const placeholder = "src/assets/placeholder.svg";
-
-// 1. A MÁGICA DO CACHE EM MEMÓRIA:
-// Essas variáveis ficam FORA do componente. 
-// Elas sobrevivem quando você troca de tela e não têm limite de 5MB!
 let globalMenuCache = null;
 let globalCacheTime = null;
-const CACHE_EXPIRATION = 1000 * 60 * 15; // 15 minutos
+const CACHE_EXPIRATION = 1000 * 60 * 15;
 
 function Home() {
   const { addItem } = useCart();
@@ -27,15 +23,12 @@ function Home() {
         setErro(null);
 
         const now = new Date().getTime();
-
-        // 2. Verifica se o cache em memória existe e ainda é válido
         if (globalMenuCache && globalCacheTime && (now - globalCacheTime < CACHE_EXPIRATION)) {
           setCategorias(globalMenuCache);
           setLoading(false);
           return;
         }
 
-        // 3. Se não tem cache, busca na API
         const response = await fetch(`${API_URL}/categorias`);
         if (!response.ok) {
           throw new Error(`Erro ao buscar cardápio: ${response.status}`);
@@ -43,7 +36,6 @@ function Home() {
 
         const dados = await response.json();
         
-        // 4. Salva na variável global em vez do sessionStorage
         globalMenuCache = dados;
         globalCacheTime = now;
 
