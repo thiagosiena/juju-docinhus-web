@@ -6,7 +6,7 @@ import { useToast } from "../../context/ToastContext";
 import { useFirebaseAuth } from "../../context/FirebaseAuthContext";
 import { FiArrowLeft, FiCheckCircle } from "react-icons/fi"; // Ícones adicionados
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+import { API_URL } from "../../config";
 
 export default function Checkout() {
   const { items: itensCarrinho, total, clearCart } = useCart();
